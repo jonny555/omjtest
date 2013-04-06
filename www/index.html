@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+       <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+<script type="text/javascript"> function changeText2(){ var userInput = document.getElementById('userInput').value; var lnk = document.getElementById('lnk'); lnk.href = "http://" + userInput; lnk.innerHTML = lnk.href; } </script>
+<script src="js/jquery.js"></script>
+<script src="js/jquery.mobile-1.2.0.js"></script>
+<link rel="stylesheet" href="css/index.css"/>
+<script> var cb;
+
+function onBodyLoad() { document.addEventListener("deviceready", onDeviceReady, false); } function onDeviceReady() { cb = window.plugins.childBrowser; }
+
+function ldr() {
+
+cb.showWebPage('http://www.google.co.uk');
+window.plugins.applicationPreferences.show("com.simonmacdon ald.prefs.QuickPrefsActivity");
+}
+
+</script>
+<script> var cb;
+
+
+
+
+function onBodyLoad() { document.addEventListener("deviceready", onDeviceReady, false); } function onDeviceReady() { cb = window.plugins.childBrowser; }
+
+
+
+
+function ldt() {
+
+
+
+
+cb.showWebPage('http://www.trakt.tv/movies/popular');
+
+
+
+
+}
+</script>
+<script> var cb;
+
+
+
+
+function onBodyLoad() { document.addEventListener("deviceready", onDeviceReady, false); } function onDeviceReady() { cb = window.plugins.childBrowser; }
+
+
+
+
+function lda() {
+
+
+
+
+cb.showWebPage('http://trailers.apple.com/#section=mostpopular');
+
+
+
+
+}
+</script>
+<script>
+$(document).on("pageinit","#newpage",function(){
+    $('#saveButton').click(function() {
+        localStorage.setItem("name", $('#name').val());
+    });
+});
+
+
+$(document).on('pageshow','#newpage', function() {
+    var personName = localStorage.getItem("name");
+    if(personName.length>0){
+            $('#name').val(personName);
+    }
+});
+</script>
+<script type="text/javascript">
+function changeText2(){
+    var name = document.getElementById('name').value;
+    var lnk = document.getElementById('lnk');
+    lnk.href = "http://" + name;
+    lnk.innerHTML = lnk.href;
+}
+</script>
+</head>
+<body onload='onBodyLoad();'>
+<div data-role="page" id="newpage" data-theme="a">
+<div data-role="header" data-theme="d">
+ <h1>Omj Navigator</h1>
+</div><!-- /header -->
+<div data-role="content">
+<div class="icon"><img align="right" valign="top" SRC="icon.png"></div>
+  <div class="content-primary">
+			<ul data-role="listview" data-inset="true" data-theme="a" data-dividertheme="d" data-icon="false" class="homelist">
+				<li data-role="list-divider">Oversight jukebox</li>
+				<li data-icon="false"><a href="" id='lnk'>nothing here yet</a> <br>
+<input type='text' id='name' value='Enter Search String Here' /></li>		
+        <li></li><a id="saveButton" onclick='changeText2()' value='' data-role="button">Save</a>
+    </li>
+				<li data-role="list-divider">Webservices</li>
+				<li data-icon="false"><a href="https://www.youtube.com" id='ldr();'>Trailers</a></li>
+              <li data-icon="false"><a href="" onclick='ldr();'>Browser</a></li>
+<li data-icon="false"><a href="" onclick='ldt();'>Trakt.tv</a></li>
+<li data-icon="false"><a href="" onclick='lda();'>Apple</a></li>
+				<li data-role="list-divider">Oversight Forum</li>
+				<li><script language="JavaScript" src="http://feed2js.org//feed2js.php?src=http%3A%2F%2Fwww.networkedmediatank.com%2Fsyndication.php%3Ffid%3D107%26limit%3D3&num=3&utf=y&html=p" charset="UTF-8" type="text/javascript"></li>
+		</script>
+			</ul>
+</div></div>
+<div data-role="footer" data-theme="d" data-position="fixed">
+ <h1>Omj Navigator app/jonny555</h1>
+</div>
+    <script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
+        <script type="text/javascript" charset="utf-8" src="childbrowser.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/applicationPreferences.js"/>
+    </body>
+</html>
